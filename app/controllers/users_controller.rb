@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     render plain: response_text
   end
 
-  def update
+  def login
     email = params[:email]
     password = params[:password]
     record = User.where("email = ? and password = ?", email, password)
