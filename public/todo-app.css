@@ -108,13 +108,10 @@ ul  {
 .TodoItem-container:hover .TodoItem-delete
 {
   visibility: visible;
-<<<<<<< HEAD
   background-color: lightgray;
   cursor: pointer;
 }
-=======
->>>>>>> 1ac2d8d171b9559619fafe91afa536d9d68c78ff
-}
+
 
 .TodoSectionTitle-date   {
   font-size: 12px;
