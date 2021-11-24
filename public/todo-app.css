@@ -69,9 +69,7 @@ body {
   font-size: 12px;
 }
 
-ul  {
-  list-style: none;
-}
+
 .TodoItem  {
   font-size: 14px;
   margin-left: 8px;
@@ -105,13 +103,12 @@ ul  {
   width: 16px;
 }
 
-.TodoItem-container:hover .TodoItem-delete
+.TodoItem:hover .TodoItem-delete
 {
   visibility: visible;
   background-color: lightgray;
   cursor: pointer;
 }
-
 
 .TodoSectionTitle-date   {
   font-size: 12px;
