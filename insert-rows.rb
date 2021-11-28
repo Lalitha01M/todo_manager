@@ -1,6 +1,6 @@
 require './connect_db.rb'
-require './users.rb'
+require './todo.rb'
 connect_db!
-User.create!(name: "lalitha", email: "llaitha@gmail.com", password: "lalitha123")
-User.create!(name: "latha", email: "latha@gmail.com", password: "latha123")
-User.create!(name: "lakshmi", email: "lakshmi@gmail.com", password: "lakshmi123")
+Todo.create!(todo_text: "Buy groceries", due_date: Date.today + 4, completed: false)
+Todo.create!(todo_text: "Call Acme Corp.", due_date: Date.today + 2, completed: true)
+Todo.create!(todo_text: "File taxes", due_date: Date.today, completed: false)
