@@ -9,7 +9,7 @@
     <% todos.each do |todo| %>
       <li class="TodoItem">
         <label class="TodoItem-container">
-          <%= form_with(url: "todos/#{todo.id}", method: "put") do %>
+          <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
             <input
               class="TodoItem-checkbox"
               name="completed"
@@ -28,7 +28,9 @@
               </p>
             <% end %>
             <a class="TodoItem-delete" href="javascript:void(0)">
-              <img src="delete.png" />
+              <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+                <input type='image' src="delete.png" width="20" height="15"/>
+              <% end %>
             </a>
         </label>
       </li>
