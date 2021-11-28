@@ -12,7 +12,7 @@
         <label class="TodoItem-container">
           <input class="TodoItem-checkbox" type="checkbox" <%= todo.completed ? "Checked" : "" %> />
           <p class='<%= todo.completed ? "TodoItem-completedText" : "" %> '>
-            <%= todos.todo_text %>
+            <%= todo.todo_text %>
           </p>
             <% if show_due_date %>
               <p class="TodoItem-dueDate">
