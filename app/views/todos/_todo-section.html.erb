@@ -9,9 +9,11 @@
     <% todos.each do |todo| %>
       <li class="TodoItem">
 
-        <lable class="TodoItem-container">
-          <input class="TodoItem-checkbox" type="checkbox" />
-            <%= todo.todo_text %>
+        <label class="TodoItem-container">
+          <input class="TodoItem-checkbox" type="checkbox" <%= todo.completed ? "checked" : "" %> />
+          <p class='<%= todo.completed ? "TodoItem-completedText" : "" %> '>
+            <%= todos.todo_text %>
+          </p>
             <% if show_due_date %>
               <p class="TodoItem-dueDate">
                 <%= todo.due_date.to_s(:short) %>
@@ -20,7 +22,7 @@
             <a class="TodoItem-delete" href="javascript:void(0)">
               <img src="delete.png" />
             </a>
-        </lable>
+        </label>
       </li>
     <% end %>
   </ul>

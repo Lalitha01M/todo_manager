@@ -89,6 +89,10 @@ body {
   align-items: center;
 }
 
+.TodoItem-completedText {
+  text-decoration: line-through;
+}
+
 .TodoItem-checkbox   {
   width: 16px;
   height: 16px;
