@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_user_logged_in
   skip_before_action :verify_authenticity_token
 
   def new
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      password: params[:password]
+      password: params[:password_digest]
     )
     redirect_to "/"
   end

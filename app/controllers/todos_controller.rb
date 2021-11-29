@@ -5,6 +5,7 @@ class TodosController < ApplicationController
     # render plain: "Hello, this is /todos!"
     # render plain: Todo.all.to_a
     # render plain: Todo.order(:due_date).map{ |todo| todo.to_pleasant_string}.join("\n")
+    current_user
     render "index"
   end
 
