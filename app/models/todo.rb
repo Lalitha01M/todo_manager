@@ -1,11 +1,14 @@
 class Todo < ActiveRecord::Base
 
-  belongs_to: user
+  belongs_to :user
 
   def due_today?
     due_date == Date.today
   end
 
+  def self.of_user(user)
+    all.where(user_id: user.id)
+  end
   def self.overdue
     all.where("completed = ? and due_date < ?", false,Date.today)
   end

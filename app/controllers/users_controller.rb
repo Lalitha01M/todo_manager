@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password_digest]
     )
+    session[:current_user_id] = user.id
     redirect_to "/"
   end
 
