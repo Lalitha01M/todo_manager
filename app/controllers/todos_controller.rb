@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
- # skip_before_action :verify_authenticity_token
+ skip_before_action :verify_authenticity_token
 
   def index
     # render plain: "Hello, this is /todos!"
@@ -18,11 +18,11 @@ class TodosController < ApplicationController
   def create
     todo_text = params[:todo_text]
     due_date = params[:due_date]
-    new_todo = Todo.create!(todo_text: todo_text, due_date: due_date, completed: false, user_id: current_user.id)
+    new_todo = Todo.new(todo_text: todo_text, due_date: due_date, completed: false, user_id: current_user.id)
     if new_todo.save
       redirect_to todos_path
     else
-      flash[:error] = new_todo.error.full_messages.join(" , ")
+      flash[:error] = new_todo.errors.full_messages.join(" , ")
       redirect_to todos_path
     end
   end

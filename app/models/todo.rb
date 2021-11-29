@@ -1,8 +1,14 @@
 class Todo < ActiveRecord::Base
-  validates :todo_text, presence :true
-  validates :todo_text, length :{minimum:2}
-  validates :due_date, presence :true
+  validates :todo_text, presence: true
+  validates :todo_text, length: { minimum: 2 }
+  validates :due_date, presence: true
+
   belongs_to :user
+
+  def to_displayable_string
+    is_completed = completed ? "[x]" : "[ ]"
+    "#{id}. #{is_completed} #{todo_text} #{due_date}"
+  end
 
   def due_today?
     due_date == Date.today
@@ -26,6 +32,7 @@ class Todo < ActiveRecord::Base
   def self.completed
     all.where(completed: true)
   end
+
   def self.show_list
     puts "My Todo-list\n\n"
     puts "Overdue\n"

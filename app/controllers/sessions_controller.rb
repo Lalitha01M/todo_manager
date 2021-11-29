@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :ensure_user_logged_in
+
   def new
   end
 
@@ -7,10 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to "/"
+      redirect_to todos_path
     else
       flash[:error] = "your login attempt was invalid, please retry"
-      redirect_to new_session_path
+      redirect_to new_sessions_path
     end
   end
 
